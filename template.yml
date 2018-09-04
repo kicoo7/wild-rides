@@ -18,6 +18,7 @@ Parameters:
 #       Enabled: true
 #       Type: Canary10Percent5Minutes
 
+
 Resources:
   GetHelloWorld:
     Type: AWS::Serverless::Function
@@ -33,3 +34,21 @@ Resources:
           Properties:
             Path: /
             Method: get
+  ListFunction:
+      Type: 'AWS::Serverless::Function'
+      Properties:
+        FunctionName: 'uni-api-list'
+        Runtime: nodejs6.10
+        CodeUri: app
+        Handler: list.lambda_handler
+        Description: List Unicorns
+        Timeout: 10
+        Events:
+          GET:
+            Type: Api
+            Properties:
+              Path: /unicorns
+              Method: get
+        Role:
+          Fn::ImportValue:
+            !Join ['-', [!Ref 'ProjectId', !Ref 'AWS::Region', 'LambdaTrustRole']]
