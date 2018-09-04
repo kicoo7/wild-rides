@@ -18,22 +18,6 @@ Parameters:
 #       Enabled: true
 #       Type: Canary10Percent5Minutes
 
-
-Resources:
-  GetHelloWorld:
-    Type: AWS::Serverless::Function
-    Properties:
-      Handler: index.get
-      Runtime: nodejs4.3
-      Role:
-        Fn::ImportValue:
-          !Join ['-', [!Ref 'ProjectId', !Ref 'AWS::Region', 'LambdaTrustRole']]
-      Events:
-        GetEvent:
-          Type: Api
-          Properties:
-            Path: /
-            Method: get
   ListUnicorns:
       Type: 'AWS::Serverless::Function'
       Properties:
