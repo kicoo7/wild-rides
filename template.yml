@@ -37,10 +37,8 @@ Resources:
   ListFunction:
       Type: 'AWS::Serverless::Function'
       Properties:
-        FunctionName: 'uni-api-list'
-        Runtime: nodejs6.10
-        CodeUri: app
         Handler: list.lambda_handler
+        Runtime: nodejs6.10
         Description: List Unicorns
         Timeout: 10
         Events:
