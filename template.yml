@@ -57,12 +57,6 @@ Resources:
       AttributeDefinitions: 
         - AttributeName: id
           AttributeType: S 
-        - AttributeName: name
-          AttributeType: S 
-        - AttributeName: image
-          AttributeType: S 
-        - AttributeName: rating
-          AttributeType: S
       KeySchema: 
         - AttributeName: id
           KeyType: HASH
