@@ -34,7 +34,7 @@ Resources:
           Properties:
             Path: /
             Method: get
-  ListFunction:
+  ListUnicorns:
       Type: 'AWS::Serverless::Function'
       Properties:
         Handler: list.lambda_handler
